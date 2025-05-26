@@ -17,9 +17,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -45,7 +42,7 @@
 - 進行服務的整合測試，確保各 API 的穩定性與可用性。
 - 將 API 進行封裝，提供統一接口供 AI 測試調用，提升測試效率與可維護性。
 
- 🤖 AI 測試
+🤖 AI 測試
 AI 測試模組涵蓋以下面向：
 - Router 路由邏輯測試
 - 大模型回覆內容的準確性與一致性測試
@@ -54,7 +51,7 @@ AI 測試模組涵蓋以下面向：
 在大模型回覆測試方面，我們採用了「**用魔法對付魔法**」的策略（LLM as a Judge）  
 以 LLM 對 LLM 輸出內容進行自動化評估，提升測試準確性與自動化程度。
 
- 📬 歡迎交流
+📬 歡迎交流
 本專案致力於為 RAG 類應用提供系統性、可擴展的質量保障方案。  
 如果您對 Multi-Agent RAG 測試與品質保障有興趣，歡迎與作者交流，一起推動智能應用的測試方法。
 
