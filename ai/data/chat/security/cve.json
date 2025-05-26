@@ -1,0 +1,634 @@
+{
+    "metadata": {
+      "id": "chat-cve",
+      "owner": "max.tsai"
+    },
+    "dataset": [
+      {
+        "case_no": 0,
+        "case_desc": "[CVE-2023-29374] LangChain 存在程式碼注入漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-29374",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-29374",
+                "summary": "LangChain 存在程式碼注入漏洞",
+                "details": "在 LangChain 版本 0.0.131 及之前版本中，`LLMMathChain` 鏈允許透過 Python 的 `exec()` 方法執行任意程式碼的提示注入攻擊。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級至 langchain 版本 0.0.132 或更高版本以解決此問題。"
+            },
+            "rule": {
+              "lte": "0.0.131"
+            }
+        }
+      },
+      {
+        "case_no": 1,
+        "case_desc": "[CVE-2023-32786] Langchain 伺服器端請求偽造漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-32786",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-32786",
+                "summary": "Langchain 伺服器端請求偽造漏洞",
+                "details": "在 Langchain 版本低於 0.0.329 時，提示注入允許攻擊者強制服務從任意 URL 檢索數據，本質上提供了 SSRF，並可能將內容注入到下游任務中。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                "severity": "HIGH",
+                "security_advise": "升級到 langchain >= 0.0.329 版本以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.329"
+            }
+        }
+      },
+      {
+        "case_no": 2,
+        "case_desc": "[CVE-2023-34540] Langchain OS指令注入漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-34540",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-34540",
+                "summary": "Langchain OS指令注入漏洞",
+                "details": "Langchain在v0.0.225之前的版本被發現有一個遠端程式碼執行（RCE）漏洞，該漏洞位於元件JiraAPIWrapper（即JIRA API包裝器）中。此漏洞允許攻擊者透過特製的輸入執行任意程式碼。如“releases/tag”參考資料所述，已提供修復程序。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到langchain>=0.0.225以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.225"
+            }
+        }
+      },
+      {
+        "case_no": 3,
+        "case_desc": "[CVE-2023-34541] Langchain 存在任意程式碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-34541",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-34541",
+                "summary": "Langchain 存在任意程式碼執行漏洞",
+                "details": "Langchain 0.0.171 版本中的 `load_prompt` 函數存在任意程式碼執行漏洞。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain >= \"0.0.247\" 版本以修復此漏洞。"
+            },
+            "rule": {
+              "gte": "0",
+              "lt": "0.0.247"
+            }
+        }
+      },
+      {
+        "case_no": 4,
+        "case_desc": "[CVE-2023-36095] langchain程式碼注入漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-36095",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-36095",
+                "summary": "langchain程式碼注入漏洞",
+                "details": "Harrison Chase langchain中的一個問題允許攻擊者透過PALChain,from_math_prompt(llm).run中的python exec方法執行任意程式碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到langchain>=0.0.236以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.236"
+            }
+        }
+      },
+      {
+        "case_no": 5,
+        "case_desc": "[CVE-2023-36188] langchain 存在任意程式碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-36188",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-36188",
+                "summary": "langchain 存在任意程式碼執行漏洞",
+                "details": "langchain 中的一個問題允許遠端攻擊者透過 Python exec 方法中的 PALChain 參數執行任意程式碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain >= '0.0.236' 版本以修復此漏洞。"
+            },
+            "rule": {
+              "lt": "0.0.236"
+            }
+        }
+      },
+      {
+        "case_no": 6,
+        "case_desc": "[CVE-2023-36189] langchain SQL注入漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-36189",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-36189",
+                "summary": "langchain SQL注入漏洞",
+                "details": "langchain中的SQL注入漏洞允許遠端攻擊者透過SQLDatabaseChain元件取得敏感資訊。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                "severity": "HIGH",
+                "security_advise": "升級到langchain版本0.0.247或更高以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.247"
+            }
+            
+        }
+      },
+      {
+        "case_no": 7,
+        "case_desc": "[CVE-2023-36258] langchain 任意程式碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-36258",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-36258",
+                "summary": "langchain 任意程式碼執行漏洞",
+                "details": "langchain 中的一個問題允許攻擊者透過 PALChain 在 python exec 方法中執行任意程式碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain >= \"0.0.247\" 版本以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.247"
+            }
+        }
+      },
+      {
+        "case_no": 8,
+        "case_desc": "[CVE-2023-36281] langchain 任意程式碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-36281",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-36281",
+                "summary": "langchain 存在任意程式碼執行漏洞",
+                "details": "langchain v.0.0.171 版本中存在一個問題，允許遠端攻擊者透過 `load_prompt` 參數中的 json 檔案執行任意程式碼。這與 `__subclasses__` 或模板有關。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain >= 0.0.312 版本以解決此問題。"
+            },
+            "rule": {
+              "gt": "0",
+              "lt": "0.0.312"
+            }
+        }
+      },
+      {
+        "case_no": 9,
+        "case_desc": "[CVE-2023-38860] langchain 任意程式碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-38860",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-38860",
+                "summary": "LangChain 存在任意程式碼執行漏洞",
+                "details": "LangChain 在 v0.0.247 之前的版本中存在一個問題，允許遠端攻擊者透過 prompt 參數執行任意程式碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain >= 0.0.247 版本以解決此問題。"
+            },
+            "rule": {
+              "gt": "0",
+              "lt": "0.0.247"
+            }
+        }
+      },
+      {
+        "case_no": 10,
+        "case_desc": "[CVE-2023-38896] LangChain 存在任意程式碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-38896",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-38896",
+                "summary": "LangChain 存在任意程式碼執行漏洞",
+                "details": "Harrison Chase langchain 在 0.0.236 版本之前有一個問題，允許遠端攻擊者透過 `from_math_prompt` 和 `from_colored_object_prompt` 函數執行任意程式碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain >= 0.0.236 版本以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.236"
+            }
+        }
+      },
+      {
+        "case_no": 11,
+        "case_desc": "[CVE-2023-39631] Langchain 通過 numexpr 庫的 evaluate 函數存在任意代碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-39631",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-39631",
+                "summary": "Langchain 通過 numexpr 庫的 evaluate 函數存在任意代碼執行漏洞",
+                "details": "LangChain-ai Langchain v.0.0.245 中的一個問題允許遠程攻擊者通過 numexpr 庫的 evaluate 函數執行任意代碼。該漏洞的補丁已在 v.0.0.308 版本中發布。 numexpr 依賴項對 langchain 來說是可選的。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain >= 0.0.308 版本以解決此問題，或者確保 numexpr 庫更新到 2.8.5 版本。"
+            },
+            "rule": {
+              "gt": "0",
+              "lt": "0.0.3086"
+            }
+        }
+      },
+      {
+        "case_no": 12,
+        "case_desc": "[CVE-2023-39659] LangChain 存在任意代碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-39659",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-39659",
+                "summary": "LangChain 存在任意代碼執行漏洞",
+                "details": "LangChain langchain-ai 在 0.0.325 版本之前存在一個問題，允許遠程攻擊者通過特製的腳本到 PythonAstREPLTool._run 組件執行任意代碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain>=0.0.325 版本以解決此漏洞。"
+            },
+            "rule": {
+              "lt": "0.0.325"
+            }
+            
+        }
+      },
+      {
+        "case_no": 13,
+        "case_desc": "[CVE-2023-44467] langchain_experimental 存在通過 PALChain 的 python exec 方法執行任意代碼的漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-44467",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-44467",
+                "summary": "langchain_experimental 存在通過 PALChain 的 python exec 方法執行任意代碼的漏洞",
+                "details": "langchain_experimental 0.0.14 允許攻擊者繞過 CVE-2023-36258 的修復，並通過 PALChain 在 python exec 方法中執行任意代碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain-experimental 版本高於 0.0.14 以解決此問題。"
+            },
+            "rule": {
+              "eq": "0.0.14"
+            }
+        }
+      },
+      {
+        "case_no": 14,
+        "case_desc": "[CVE-2023-46229] LangChain 服務器端請求偽造漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2023-46229",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2023-46229",
+                "summary": "LangChain 服務器端請求偽造漏洞",
+                "details": "LangChain 在 0.0.317 之前的版本中，由於 `document_loaders/recursive_url_loader.py` 文件中的爬取機制可以從外部服務器繼續爬取到內部服務器，從而允許 SSRF 漏洞的存在。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+                "severity": "HIGH",
+                "security_advise": "升級到 langchain >= \"0.0.317\" 版本以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.317"
+            }
+        }
+      },
+      {
+        "case_no": 15,
+        "case_desc": "[CVE-2024-0243] langchain 服務器端請求偽造漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-0243",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-0243",
+                "summary": "langchain 服務器端請求偽造漏洞",
+                "details": "使用以下爬蟲配置時，攻擊者可通過控制 `https://example.com` 的內容放置惡意 HTML 文件，即使設置 `prevent_outside=True`，爬蟲仍會下載文件。如在 `https://example.com` 中放置鏈接為 `https://example.completely.different/my_file.html` 的惡意文件，爬蟲會繼續下載該文件。 \n ```python\n from bs4 import BeautifulSoup as Soup\n \n url = \"https://example.com\"\n loader = RecursiveUrlLoader(\n url=url, max_depth=2, extractor=lambda x: Soup(x, \"html.parser\").text\n )\n docs = loader.load()\n ```\n 已在 https://github.com/langchain-ai/langchain/pull/15559 中修復。 \n",
+                "cvss": "CVSS:3.0/AV:L/AC:H/PR:H/UI:R/S:C/C:L/I:L/A:N",
+                "severity": "LOW",
+                "security_advise": "升級到 langchain >= \"0.1.0\" 版本以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.1.0"
+            }
+        }
+      },
+      {
+        "case_no": 16,
+        "case_desc": "[CVE-2024-1455] LangChain的XMLOutputParser易受XML實體擴展攻擊",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-1455",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-1455",
+                "summary": "LangChain的XMLOutputParser易受XML實體擴展攻擊",
+                "details": "LangChain中的XMLOutputParser使用了Python標準庫中的xml模塊的etree，該模塊存在一些XML漏洞。這主要影響將LLM（或代理）與XMLOutputParser結合使用，並通過Web服務的端點暴露該組件的用戶。惡意方可能會嘗試操縱LLM產生惡意負載，從而危害服務的可用性。成功的攻擊基於以下條件：1. 使用XMLOutputParser；2. 直接或通過嘗試操縱LLM為用戶執行此操作，將惡意輸入傳遞給XMLOutputParser；3. 通過Web服務暴露該組件。",
+                "cvss": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "severity": "MEDIUM",
+                "security_advise": "升級到langchain-core>=0.1.35以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.1.35"
+            }
+        }
+      },
+      {
+        "case_no": 17,
+        "case_desc": "[CVE-2024-2057] LangChain的load_local函數存在服務器端請求偽造漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-2057",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-2057",
+                "summary": "LangChain的load_local函數存在服務器端請求偽造漏洞",
+                "details": "在Harrison Chase LangChain 0.1.9版本中發現了一個漏洞，該漏洞影響了庫libs/community/langchain_community/retrievers/tfidf.py中的load_local函數。該漏洞可導致服務器端請求偽造，攻擊者可以遠程發起攻擊。此漏洞的標識符為VDB-255372。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                "severity": "CRITICAL",
+                "security_advise": "升級到LangChain的最新版本以解決此問題，確保及時應用所有安全補丁。"
+            },
+            "rule": {
+              "lt": "0.1.9"
+            }
+        }
+      },
+      {
+        "case_no": 18,
+        "case_desc": "[CVE-2024-21513] langchain-experimental 存在任意代碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-21513",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-21513",
+                "summary": "langchain-experimental 存在任意代碼執行漏洞",
+                "details": "langchain-experimental 包的 0.0.15 及之前版本在從資料庫檢索值時存在任意代碼執行漏洞，代碼會對所有值嘗試調用 'eval'。如果攻擊者能夠控制輸入提示且服務器配置了 VectorSQLDatabaseChain，就可以利用此漏洞執行任意 Python 代碼。",
+                "cvss": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain-experimental >= 0.0.21 版本以解決此問題。"
+            },
+            "rule": {
+              "gte": "0.0.0",
+              "lt": "0.0.21"
+            }
+            
+        }
+      },
+      {
+        "case_no": 19,
+        "case_desc": "[CVE-2024-27444] LangChain Experimental 存在任意代碼執行漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-27444",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-27444",
+                "summary": "LangChain Experimental 存在任意代碼執行漏洞",
+                "details": "langchain_experimental（即 LangChain Experimental）在 0.0.52 之前版本，以及 LangChain 在 0.1.8 之前版本，允許攻擊者繞過 CVE-2023-44467 的修復，通過 Python 代碼中的 `__import__`、`__subclasses__`、`__builtins__`、`__globals__`、`__getattribute__`、`__bases__`、`__mro__` 或 `__base__` 屬性執行任意代碼。這些屬性未被 `pal_chain/base.py` 禁止。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain_experimental>=0.0.52 或 LangChain>=0.1.8 以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.52"
+            }
+        }
+      },
+      {
+        "case_no": 20,
+        "case_desc": "[CVE-2024-28088] LangChain 目錄遍歷漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-28088",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-28088",
+                "summary": "LangChain 目錄遍歷漏洞",
+                "details": "LangChain 在 0.1.10 版本中，允許攻擊者通過控制 load_chain 調用中路徑參數的最後一部分來實現 ../ 目錄遍歷。這繞過了僅從 hwchase17/langchain-hub GitHub 倉庫加載配置的預期行為。結果可能導致在線大型語言模型的 API 密鑰洩露，或者遠程代碼執行。",
+                "cvss": null,
+                "severity": "LOW",
+                "security_advise": "升級到 langchain >= 0.0.339 或 langchain-core >= 0.1.30 以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.1.30"
+            }
+        }
+      },
+      {
+        "case_no": 21,
+        "case_desc": "[CVE-2024-2965] langchain-community 中的拒絕服務漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-2965",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-2965",
+                "summary": "langchain-community 中的拒絕服務漏洞",
+                "details": "langchain-community 包中的 SitemapLoader` 文檔加載器存在拒絕服務漏洞，影響版本低於 0.2.5 的版本。 `parse_sitemap` 方法負責解析站點地圖並提取 URL，但缺乏防止無限遞歸的機制，當站點地圖 URL 引用當前站點地圖本身時，可能會導致無限循環，從而通過超過 Python 的最大遞歸深度導致崩潰。此漏洞可被利用來佔用服務器套接字/端口資源並導致 Python 進程崩潰，影響依賴於此功能的服務的可用性。 \n",
+                "cvss": "CVSS:3.0/AV:P/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "severity": "MEDIUM",
+                "security_advise": "升級到 langchain-community >= 0.2.5 版本以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.2.5"
+            }
+        }
+      },
+      {
+        "case_no": 22,
+        "case_desc": "[CVE-2024-3095] langchain-community.retrievers.web_research.WebResearchRetriever 中的服務器端請求偽造漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-3095",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-3095",
+                "summary": "langchain-community.retrievers.web_research.WebResearchRetriever 中的服務器端請求偽造漏洞",
+                "details": "langchain-community 的 Web Research Retriever 組件存在服務器端請求偽造（SSRF）漏洞。由於 Web Research Retriever 不限制對遠程互聯網地址的請求，允許其訪問本地地址。此缺陷使攻擊者能夠執行端口掃描、訪問本地服務，並在某些情況下，從雲環境中讀取實例元數據。該漏洞尤其令人擔憂，因為它可被利用來濫用 Web Explorer 服務器作為對第三方的 Web 攻擊代理，並與本地網絡中的服務器交互，包括讀取它們的響應數據。這可能會導致根據本地服務的性質而執行任意代碼。該漏洞僅限於 GET 請求，因為不可能進行 POST 請求，但由於潛在的憑據被盜和與內部 API 的狀態更改交互，對保密性、完整性和可用性的影響顯著。",
+                "cvss": "CVSS:3.0/AV:P/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N",
+                "severity": "MEDIUM",
+                "security_advise": "升級到 langchain-community >= 0.2.9 版本以解決此問題，或者參考修復代碼，要求用戶選擇加入，並建議使用代理來防止對本地地址的請求。"
+            },
+            "rule": {
+              "lt": "0.2.9"
+            }
+        }
+      },
+      {
+        "case_no": 23,
+        "case_desc": "[CVE-2024-3571] langchain 存在路徑遍歷漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-3571",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-3571",
+                "summary": "langchain 存在路徑遍歷漏洞",
+                "details": "langchain-ai/langchain 由於其 LocalFileStore 功能中對路徑名限制不當（'路徑遍歷'），導致存在路徑遍歷漏洞。攻擊者可以利用此漏洞讀取或寫入文件系統上的任意文件，可能導致信息洩露或遠程代碼執行。問題在於 mset 和 mget 方法中處理文件路徑時，未充分清理用戶提供的輸入，允許目錄遍歷序列到達非預期目錄。",
+                "cvss": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+                "severity": "MEDIUM",
+                "security_advise": "升級到 langchain >= \"0.0.353\" 版本以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.353"
+            }
+        }
+      },
+      {
+        "case_no": 24,
+        "case_desc": "[CVE-2024-38459] langchain_experimental 通過 Python REPL 訪問執行代碼漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-38459",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-38459",
+                "summary": "langchain_experimental 通過 Python REPL 訪問執行代碼漏洞",
+                "details": "langchain_experimental（又名 LangChain Experimental）在 0.0.61 之前的版本中提供了無需同意步驟的 Python REPL 訪問權限。請注意，此問題是由於對 CVE-2024-27444 的修復不完整而導致的。",
+                "cvss": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+                "severity": "HIGH",
+                "security_advise": "升級到 langchain-experimental>=0.0.61 以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.0.61"
+            }
+          }
+      },
+      {
+        "case_no": 25,
+        "case_desc": "[CVE-2024-46946] LangChain Experimental Eval 注入漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-46946",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-46946",
+                "summary": "LangChain Experimental Eval 注入漏洞",
+                "details": "langchain_experimental（又名 LangChain Experimental）0.1.17 至 0.3.0 版本中的 LangChain 允許攻擊者通過 sympy.sympify（使用 eval）在 LLMSymbolicMathChain 中執行任意代碼。 LLMSymbolicMathChain 在 fcccde406dd9e9b05fc9babcbeb9ff527b0ec0c6（2023-10-05）中引入。",
+                "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "severity": "CRITICAL",
+                "security_advise": "升級到 langchain-experimental 版本大於 0.3.0 以解決此問題。"
+            },
+            "rule": {
+              "gte": "0.1.17",
+              "lte": "0.3.0"
+            }
+          }
+      },
+      {
+        "case_no": 26,
+        "case_desc": "[CVE-2024-5998] LangChain pickle反序列化不受信任數據",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-5998",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-5998",
+                "summary": "LangChain pickle反序列化不受信任數據",
+                "details": "LangChain中的`FAISS.deserialize_from_bytes`函數存在漏洞，允許對不受信任的數據進行pickle反序列化。這可能導致通過`os.system`函數執行任意命令。該問題影響0.2.4之前的版本。",
+                "cvss": "CVSS:3.1/AV:P/AC:L/PR:L/UI:R/S:U/C:H/I:L/A:L",
+                "severity": "HIGH",
+                "security_advise": "升級到langchain-community>=0.2.4以解決此問題。"
+            },
+            "rule": {
+              "lt": "0.2.4"
+            }
+          }
+      },
+      {
+        "case_no": 27,
+        "case_desc": "[CVE-2024-8309] Langchain SQL注入漏洞",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "cve": {
+            "info": {
+                "name": "langchain",
+                "cve": "CVE-2024-8309",
+                "cve_link": "https://www.cve.org/CVERecord?id=CVE-2024-8309",
+                "summary": "Langchain SQL注入漏洞",
+                "details": "langchain-ai/langchain版本0.2.5中的GraphCypherQAChain類存在SQL注入漏洞，該漏洞可通過提示注入實現SQL注入。此漏洞可能導致未經授權的數據操作、數據洩露、通過刪除所有數據導致的服務拒絕（DoS）、多租戶安全環境中的安全漏洞以及數據完整性問題。攻擊者可以在未經適當授權的情況下創建、更新或刪除節點和關係，提取敏感數據，中斷服務，訪問不同租戶的數據，並破壞資料庫的完整性。",
+                "cvss": "CVSS:3.0/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L",
+                "severity": "MEDIUM",
+                "security_advise": "升級到langchain-community版本0.2.19或langchain版本0.2.0以上以解決此問題。"
+            },
+            "rule": {
+              "eq": "0.2.0",
+              "lt": "0.3.0"
+            } 
+        }  
+      }
+    ]
+  }

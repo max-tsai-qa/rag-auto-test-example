@@ -1,0 +1,24 @@
+chat:
+  base_url:
+    dev: https://XXXXXXXXXXX
+    stg: https://XXXXXXXXXXX
+    uat: https://XXXXXXXXXXX
+    prod: https://XXXXXXXXXXX
+  auth_url:
+    dev: https://XXXXXXXXXXX
+    stg: https://XXXXXXXXXXX
+    uat: https://XXXXXXXXXXX
+    prod: https://XXXXXXXXXXX
+  timeout: 10
+search:
+  base_url:
+    dev: https://XXXXXXXXXXX
+    stg: https://XXXXXXXXXXX
+    uat: https://XXXXXXXXXXX
+    prod: https://XXXXXXXXXXX
+  auth_url:
+    dev: https://XXXXXXXXXXX
+    stg: https://XXXXXXXXXXX
+    uat: https://XXXXXXXXXXX
+    prod: https://XXXXXXXXXXX
+  timeout: 10

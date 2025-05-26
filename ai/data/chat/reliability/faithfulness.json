@@ -1,0 +1,18 @@
+{
+    "metadata": {
+      "id": "chat-faithfulness",
+      "owner": "max.tsai"
+    },
+    "dataset": [
+      {
+        "case_no": 2,
+        "case_desc": "[Faithfulness] 指定物件詢問其相關",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "param_text_input": "這間有停車場嗎？如果沒有的話我要停哪",
+        "param_search_company_name": "TWHG",
+        "param_search_category": "case_info"
+      }
+    ]
+  }

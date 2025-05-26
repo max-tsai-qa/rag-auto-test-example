@@ -1,0 +1,52 @@
+{
+    "metadata": {
+      "id": "chat-conversations-post_messages",
+      "method": "POST",
+      "path": "/v1/conversations/:conversation_id/messages",
+      "owner": "max.tsai"
+    },
+    "dataset": [
+      {
+        "case_detail": {
+          "id": 0,
+          "desc": "post messages 創建新的訊息成功",
+          "tags": ["positive_flow"],
+          "priority": "high"
+        },
+        "run_state": 1,
+        "conditions": {
+          "param_token_mutation": null,
+          "param_conversation_id": "SCRIPT",
+          "param_content_type": "plain-text",
+          "param_content_text": ["請推薦給我100萬以上的物件"]
+        },
+        "expect_result": {
+          "status_code": 200,
+          "response_schema": {
+          },
+          "timeout": 15
+        }
+      },
+      {
+        "case_detail": {
+          "id": 1,
+          "desc": "post messages 創建新的訊息成功 - 兩輪對話",
+          "tags": ["positive_flow"],
+          "priority": "high"
+        },
+        "run_state": 1,
+        "conditions": {
+          "param_token_mutation": null,
+          "param_conversation_id": "SCRIPT",
+          "param_content_type": "plain-text",
+          "param_content_text": ["請推薦給我100萬以上的物件", "這些物件有學區房嗎？"]
+        },
+        "expect_result": {
+          "status_code": 200,
+          "response_schema": {
+          },
+          "timeout": 30
+        }
+      }
+    ]
+  }

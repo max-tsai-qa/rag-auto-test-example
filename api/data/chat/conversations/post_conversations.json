@@ -1,0 +1,25 @@
+{
+    "metadata": {
+      "id": "chat-conversations-post_conversations",
+      "method": "POST",
+      "path": "/v1/conversations",
+      "owner": "max.tsai"
+    },
+    "dataset": [
+      {
+        "case_detail": {
+          "id": 0,
+          "desc": "post conversations 成功",
+          "tags": ["positive_flow"],
+          "priority": "high"
+        },
+        "run_state": 1,
+        "expect_result": {
+          "status_code": 200,
+          "response_schema": {
+          },
+          "timeout": 5
+        }
+      }
+    ]
+  }

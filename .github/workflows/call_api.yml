@@ -1,0 +1,90 @@
+name: api auto test
+run-name: "[Regression] API Test #${{ github.run_number }}"
+
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "select test environment"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+        - "dev"
+        - "stg"
+        - "uat"
+        - "prod"
+      services:
+        description: "select test services"
+        required: true
+        default: "chat"
+        type: choice
+        options:
+        - "chat"
+        - "search"
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      services:
+        required: true
+        type: string
+
+jobs:
+  build:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip3 install -r api/requirements.txt
+
+    - name: Create .env file
+      run: echo "${{ secrets.AUTO_TEST_ENV_FILE }}" > api/.env
+
+    - name: Install Allure Report
+      run: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo >> /home/runner/.bashrc
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew install allure
+
+    - name: Run test
+      run: |
+        cd api
+        pytest -n auto --reruns 3 --trace-api --environment=${{ inputs.environment }} --services=${{ inputs.services }} --alluredir allure-results
+
+    - name: Gen allure report
+      if: ${{ !cancelled() }}
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        cd api
+        allure generate --single-file --clean
+
+    - name: Upload report to artifact
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report
+        path: api/allure-report
+        if-no-files-found: error
+        retention-days: 3
+
+    - name: Send google chat when test cancel
+      if: ${{ cancelled() }}
+      uses: ./.github/actions/google_chat_cancel_msg
+      with:
+        title: "[Regression] API Test Cancel"
+        subtitle: "env: ${{ inputs.environment }} | service: ${{ inputs.services }}"

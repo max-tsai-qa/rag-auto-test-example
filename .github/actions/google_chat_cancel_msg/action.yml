@@ -1,0 +1,50 @@
+name: google chat cancel message
+description: when test cancel than send cancel message
+
+inputs:
+  title:
+    description: "test title"
+    required: true
+    type: string
+  subtitle:
+    description: "test subtitle"
+    required: false
+    default: ""
+    type: string
+  chat_webhook_url:
+    description: "send to specify channel's webhook"
+    default: "https://chat.googleapis.com/v1/spaces/XXXXXXXXXXX/messages?key=XXXXXXXXXXXX"
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Send Google Chat
+      shell: bash
+      run: |
+        curl --location '${{ chat_webhook_url }}' \
+        --header 'Content-Type: application/json' \
+        --data '{
+            "cards": [
+                {
+                    "header": {
+                        "title": "${{ inputs.title }}",
+                        "subtitle": "${{ inputs.subtitle }}",
+                        "imageUrl": "https://fonts.gstatic.com/s/e/notoemoji/15.1/1f7e1/512.png=s60"
+                    },
+                    "sections": [
+                        {
+                            "header": "",
+                            "widgets": [
+                                {
+                                    "textParagraph": {
+                                        "text": "<a href=\"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\">view github actions</a>"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }'
+      

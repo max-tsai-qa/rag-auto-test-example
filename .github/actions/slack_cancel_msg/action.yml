@@ -1,0 +1,49 @@
+name: slack cancel message
+description: when test cancel than send cancel message
+
+inputs:
+  title:
+    description: "test title"
+    required: true
+    type: string
+  slack_webhook_url:
+    description: "send to specify channel's webhook"
+    default: "https://hooks.slack.com/services/XXXXXXXXXXXX/XXXXXXXXXXXX"
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Send Slack
+      id: slack
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        payload: |
+            {
+                "blocks": [
+                {
+                    "type": "header",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "${{ inputs.title }}"
+                    }
+                }
+                ],
+                "attachments": [
+                {
+                    "blocks": [
+                    {
+                        "type": "section",
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": "*<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |View Github Actions>*"
+                        }
+                    }
+                    ],
+                    "color": "#ADB5BD"
+                }
+                ]
+            }
+      env:
+        SLACK_WEBHOOK_URL: ${{ inputs.slack_webhook_url }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK

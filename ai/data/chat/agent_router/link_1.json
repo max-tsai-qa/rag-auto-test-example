@@ -1,0 +1,18 @@
+{
+    "metadata": {
+      "id": "chat-agent_router-link_1",
+      "owner": "max.tsai",
+      "desc": "agent_1 -> agent_2 -> agent_3"
+    },
+    "dataset": [
+      {
+        "case_no": 0,
+        "case_desc": "經過 agent_1 -> agent_2 -> agent_3",
+        "case_tags": [],
+        "case_state": 1,
+        "case_memo": null,
+        "param_text_input": "想請問購買超過1000萬以上的物件交屋時需要注意哪些事項",
+        "expect_call_link": ["agent_1", "agent_2", "agent_3"]
+      }
+    ]
+  }
